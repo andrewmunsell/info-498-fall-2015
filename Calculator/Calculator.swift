@@ -49,15 +49,11 @@ class Calculator {
                 switch input {
                 case "add", "sub", "div", "mul", "mod", "exp", "+", "-", "*", "/", "%", "**":
                     inputs.append(input)
-                    break
                 case "":
                     calculating = false
-                    break
                 default:
                     multiOperand = input
                     calculating = false
-
-                    break
                 }
 
             } else {
@@ -97,10 +93,8 @@ class Calculator {
             }
             
             result = sum / Double(inputs.count)
-            break
         case "count":
             result = Double(inputs.count)
-            break
         case "fact":
             if inputs.count != 1 {
                 throw CalculatorError.IllegalArgument
@@ -138,26 +132,20 @@ class Calculator {
                 switch currentOperand! {
                 case "add", "+":
                     result += current
-                    break
                 case "sub", "-":
                     result -= current
-                    break
                 case "mul", "*":
                     result *= current
-                    break
                 case "div", "/":
                     if current == 0.0 {
                         throw CalculatorError.DivideByZero
                     }
 
                     result /= current
-                    break
                 case "mod", "%":
                     result %= current
-                    break
                 case "exp", "**":
                     result = pow(result, current)
-                    break
                 default:
                     throw CalculatorError.InvalidOperand
                 }
