@@ -40,9 +40,14 @@ class Calculator {
 
         var calculating : Bool = true
         var multiOperand : String?
+        
+        print("Calculator:")
+        print("Enter a single operator or operand (+, -, /, *, %, **) per line.")
+        print("To calculate a function, enter one number per line, then the function name (fact, count, avg).")
+        print("")
 
         repeat {
-            print("Enter a number, operand, or return to calculate", terminator: ":")
+            print(" ", terminator: ">")
             let input = self.getInput()
             
             if self.stringToNumber(input) == nil {
@@ -168,8 +173,8 @@ class Calculator {
     }
     
     /**
-    * Read a line of input from the console
-    */
+     * Read a line of input from the console
+     */
     private func getInput() -> String {
         let keyboard = NSFileHandle.fileHandleWithStandardInput()
         let inputData = keyboard.availableData
