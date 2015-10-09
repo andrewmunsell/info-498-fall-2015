@@ -42,7 +42,7 @@ class Calculator {
         var multiOperand : String?
         
         print("Calculator:")
-        print("Enter a single operator or operand (+, -, /, *, %, **) per line.")
+        print("Enter a single operator (+, -, /, *, %, **) or operand  per line.")
         print("To calculate a function, enter one number per line, then the function name (fact, count, avg).")
         print("")
 
