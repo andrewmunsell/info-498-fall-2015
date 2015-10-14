@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		495872851BCDA20F00425757 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495872841BCDA20F00425757 /* main.swift */; };
+		4958728C1BCDA22D00425757 /* CalculatorFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4958728B1BCDA22D00425757 /* CalculatorFunctions.swift */; settings = {ASSET_TAGS = (); }; };
+		4958728E1BCDA31300425757 /* ArrayFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4958728D1BCDA31300425757 /* ArrayFunctions.swift */; settings = {ASSET_TAGS = (); }; };
+		495872901BCDA41200425757 /* PointFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4958728F1BCDA41200425757 /* PointFunctions.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,9 @@
 /* Begin PBXFileReference section */
 		495872811BCDA20F00425757 /* AdvancedCalculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AdvancedCalculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		495872841BCDA20F00425757 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		4958728B1BCDA22D00425757 /* CalculatorFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorFunctions.swift; sourceTree = "<group>"; };
+		4958728D1BCDA31300425757 /* ArrayFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayFunctions.swift; sourceTree = "<group>"; };
+		4958728F1BCDA41200425757 /* PointFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,9 @@
 			isa = PBXGroup;
 			children = (
 				495872841BCDA20F00425757 /* main.swift */,
+				4958728B1BCDA22D00425757 /* CalculatorFunctions.swift */,
+				4958728D1BCDA31300425757 /* ArrayFunctions.swift */,
+				4958728F1BCDA41200425757 /* PointFunctions.swift */,
 			);
 			path = AdvancedCalculator;
 			sourceTree = "<group>";
@@ -119,6 +128,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				495872851BCDA20F00425757 /* main.swift in Sources */,
+				4958728C1BCDA22D00425757 /* CalculatorFunctions.swift in Sources */,
+				495872901BCDA41200425757 /* PointFunctions.swift in Sources */,
+				4958728E1BCDA31300425757 /* ArrayFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
