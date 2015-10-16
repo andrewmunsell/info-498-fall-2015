@@ -16,6 +16,22 @@ class Family {
     }
     
     /**
+     * Return a boolean indicating whether the family is legal or not. A legal family
+     * has at least one person that is at least 21 years of age.
+     */
+    func isLegal() -> Bool {
+        var isLegal : Bool = false
+        
+        for member in self.members {
+            if member.age >= 21 {
+                isLegal = true
+            }
+        }
+        
+        return isLegal
+    }
+    
+    /**
      * Compute the household income for a full work year
      */
     func householdIncome() -> Money {

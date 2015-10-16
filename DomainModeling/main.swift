@@ -81,3 +81,5 @@ print("Income: " + String(family.householdIncome()))
 family.haveChild("Lisa", lastName: "Jobs")
 
 print("Family members: " + String(family.members.count))
+
+print("Is legal? " + String(family.isLegal()))

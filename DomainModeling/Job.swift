@@ -25,7 +25,7 @@ class Job {
     }
     
     /**
-     * Provide a raise for the job
+     * Provide a raise for the job by the specified percentage
      */
     func raise(percent : Double) {
         self.pay.amount *= (1.0 + percent)
