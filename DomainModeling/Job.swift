@@ -12,6 +12,13 @@ class Job {
     var title : String
     var pay : Money
     
+    /**
+     * Create a custom description for the job
+     */
+    var description : String {
+        return "\(title)"
+    }
+    
     init(title : String, pay : Money) {
         self.title = title
         self.pay = pay

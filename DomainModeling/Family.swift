@@ -11,6 +11,13 @@ import Foundation
 class Family {
     var members : [Person]
     
+    /**
+     * Set a custom description for the family
+     */
+    var description : String {
+        return "Family (\(self.members.count) members)"
+    }
+    
     init(members : [Person]) {
         self.members = members
     }

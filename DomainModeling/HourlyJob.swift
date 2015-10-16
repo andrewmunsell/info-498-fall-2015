@@ -8,7 +8,14 @@
 
 import Foundation
 
-class HourlyJob : Job {    
+class HourlyJob : Job {
+    /**
+     * Set a custom description for the job
+     */
+    override var description : String {
+        return "\(self.title): $\(self.pay.amount) per hour"
+    }
+    
     /**
      * Calculate the income for the specified number of hours
      */

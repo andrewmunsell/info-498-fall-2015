@@ -11,6 +11,13 @@ import Foundation
 class SalaryJob : Job {
     // Number of hours in a year
     static var yearlyHours = 2000
+    
+    /**
+     * Set a custom description for the job
+     */
+    override var description : String {
+        return "\(self.title): $\(self.pay.amount) yearly"
+    }
 
     /**
      * Calculate the income, ignoring the number of hours since this is a salaried job.
