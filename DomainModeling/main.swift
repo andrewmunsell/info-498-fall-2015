@@ -36,6 +36,12 @@ dollarUsd.convert(Currency.USD)
 
 print("Result: \(dollarUsd)")
 
+// Double Extensions
+var extYen = 119.5.YEN
+extYen.convert(Currency.USD)
+
+print("Result from extensions: \(extYen)")
+
 // Job
 
 var ta = HourlyJob(title: "Teaching Assistant", pay: Money(amount: 15.0))

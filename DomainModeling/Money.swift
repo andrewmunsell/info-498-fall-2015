@@ -13,13 +13,36 @@ enum Currency : Double {
     case CAN = 1.25
     case GBP = 0.5
     case EUR = 1.5
+    case YEN = 119.5
+}
+
+extension Double {
+    var USD: Money {
+        return Money(amount: self)
+    }
+    
+    var CAN: Money {
+        return Money(amount: self, currency: Currency.CAN)
+    }
+    
+    var GBP: Money {
+        return Money(amount: self, currency: Currency.GBP)
+    }
+    
+    var EUR: Money {
+        return Money(amount: self, currency: Currency.EUR)
+    }
+    
+    var YEN: Money {
+        return Money(amount: self, currency: Currency.YEN)
+    }
 }
 
 enum CurrencyError : ErrorType {
     case InvalidCurrency
 }
 
-struct Money : CustomStringConvertible {
+struct Money : Mathematics, CustomStringConvertible {
     var amount : Double
     var currency : Currency
     
@@ -27,7 +50,7 @@ struct Money : CustomStringConvertible {
      * Specify a custom description
      */
     var description : String {
-        return String(self.amount) + " " + String(self.currency)
+        return String(self.currency) + String(self.amount)
     }
     
     // An empty money object for convenience
