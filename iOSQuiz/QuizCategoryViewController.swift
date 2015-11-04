@@ -47,5 +47,14 @@ class QuizCategoryViewController: UIViewController, UITableViewDataSource {
         
         return cell
     }
+
+    @IBAction func settingsButtonTapped(sender: UIBarButtonItem) {
+        let settings = UIAlertController(title: "Settings", message: "The settings dialog would go here.", preferredStyle: .Alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        settings.addAction(cancelAction)
+        
+        self.presentViewController(settings, animated: true, completion: nil)
+    }
 }
 
