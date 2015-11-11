@@ -8,12 +8,25 @@
 
 import UIKit
 
-class QuizCategoryViewController: UIViewController, UITableViewDataSource {
+class QuizCategoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     let tableData = [
-        QuizCategory(title: "Math", description: "Numbers and equations", icon: "math"),
-        QuizCategory(title: "Science", description: "Chemistry, biology, physics and more", icon: "science"),
-        QuizCategory(title: "Marvel Super Heros", description: "One of these categories does not belong...", icon: "hero")
+        QuizCategory(title: "Math", description: "Numbers and equations", icon: "math", questions: [
+            QuizQuestion(question: "What is 1 + 1?", answers: ["1", "2", "3", "4"], correctAnswer: 1),
+            QuizQuestion(question: "What is 5 + 5?", answers: ["1", "3", "10", "25"], correctAnswer: 2),
+            QuizQuestion(question: "What is 45 * 1 + 1?", answers: ["6", "45", "46", "40"], correctAnswer: 2)
+        ]),
+        
+        QuizCategory(title: "Science", description: "Chemistry, biology, physics and more", icon: "science", questions: [
+            QuizQuestion(question: "How many fingers does a human have on average?", answers: ["5", "8", "10", "100"], correctAnswer: 3),
+            QuizQuestion(question: "\"He\" is the atomic symbol for which element?", answers: ["Helium", "Hydrogen", "Boron", "Chlorine"], correctAnswer: 0)
+        ]),
+        
+        QuizCategory(title: "Marvel Super Heros", description: "One of these categories does not belong...", icon: "hero", questions: [
+                QuizQuestion(question: "What is the name of the super hero that wears a red suit of armor?", answers: ["Hulk", "Iron Man", "Spiderman", "Nighthawk"], correctAnswer: 1)
+            ])
     ];
+    
+    private var currentQuiz: QuizCategory?
     
     @IBOutlet weak var categoryTable: UITableView!
 
@@ -21,6 +34,7 @@ class QuizCategoryViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         
         categoryTable.dataSource = self
+        categoryTable.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,6 +61,12 @@ class QuizCategoryViewController: UIViewController, UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        currentQuiz = tableData[indexPath.row]
+        
+        self.performSegueWithIdentifier("BeginQuiz", sender: nil)
+    }
 
     @IBAction func settingsButtonTapped(sender: UIBarButtonItem) {
         let settings = UIAlertController(title: "Settings", message: "The settings dialog would go here.", preferredStyle: .Alert)
@@ -55,6 +75,18 @@ class QuizCategoryViewController: UIViewController, UITableViewDataSource {
         settings.addAction(cancelAction)
         
         self.presentViewController(settings, animated: true, completion: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier! == "BeginQuiz" {
+            // Get the destination controller and assign the quiz to the destination controller
+            let destinationController = segue.destinationViewController as! QuestionViewController
+            
+            destinationController.quiz = self.currentQuiz
+            
+            destinationController.currentQuestion = 0
+            destinationController.questionsCorrect = 0
+        }
     }
 }
 

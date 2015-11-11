@@ -9,8 +9,10 @@
 import Foundation
 
 struct QuizCategory {
-    var title : String
-    var description : String
+    var title: String
+    var description: String
     
-    var icon : String?
+    var icon: String?
+    
+    var questions: [QuizQuestion]
 }
