@@ -15,7 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        // Ensure the user defaults have stuff in them
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        let url = userDefaults.stringForKey("url")
+        if url == nil {
+            userDefaults.setValue("http://tednewardsandbox.site44.com/questions.json", forKey: "url")
+            userDefaults.synchronize()
+        }
+        
         return true
     }
 

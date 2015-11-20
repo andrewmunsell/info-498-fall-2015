@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1J8-wl-T6e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1J8-wl-T6e">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -29,7 +29,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="S1m-pe-AlV"/>
                                     <barButtonItem title="Settings" id="JGT-ZO-jPN">
                                         <connections>
-                                            <action selector="settingsButtonTapped:" destination="1J8-wl-T6e" id="e7H-Lp-6Wr"/>
+                                            <segue destination="vNR-jW-ZSi" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="JW2-8v-NXW"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -106,6 +106,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QJP-Ap-0aU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1026" y="410"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="lUb-BC-ygE">
+            <objects>
+                <viewController title="Settings" id="vNR-jW-ZSi" customClass="SettingsViewController" customModule="iOSQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OeA-A9-dGV"/>
+                        <viewControllerLayoutGuide type="bottom" id="U6h-a5-7eD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eUZ-3A-tje">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2u-iG-Zon">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <animations/>
+                                <items>
+                                    <navigationItem title="Settings" id="T5f-a1-Cca"/>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL to JSON File" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2aI-Pm-J1g">
+                                <rect key="frame" x="20" y="85" width="560" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="zAS-qy-nnn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qpp-T8-ZzI">
+                                <rect key="frame" x="20" y="114" width="560" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="p9e-cB-x2r"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="done"/>
+                            </textField>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="2aI-Pm-J1g" secondAttribute="leading" id="49W-3y-g5C"/>
+                            <constraint firstItem="Qpp-T8-ZzI" firstAttribute="centerX" secondItem="eUZ-3A-tje" secondAttribute="centerX" id="DPg-IK-SjB"/>
+                            <constraint firstItem="l2u-iG-Zon" firstAttribute="width" secondItem="eUZ-3A-tje" secondAttribute="width" id="Ur7-Ty-9mO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2aI-Pm-J1g" secondAttribute="trailing" id="YoU-3w-IRM"/>
+                            <constraint firstItem="2aI-Pm-J1g" firstAttribute="top" secondItem="OeA-A9-dGV" secondAttribute="bottom" constant="65" id="ZCO-uH-G2w"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Qpp-T8-ZzI" secondAttribute="leading" id="cpd-ip-dfl"/>
+                            <constraint firstItem="l2u-iG-Zon" firstAttribute="top" secondItem="OeA-A9-dGV" secondAttribute="bottom" id="iHl-oC-KlB"/>
+                            <constraint firstItem="Qpp-T8-ZzI" firstAttribute="top" secondItem="2aI-Pm-J1g" secondAttribute="bottom" constant="8" id="mOn-dP-yGK"/>
+                            <constraint firstItem="l2u-iG-Zon" firstAttribute="leading" secondItem="eUZ-3A-tje" secondAttribute="leadingMargin" constant="-20" id="moi-bc-vOk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Qpp-T8-ZzI" secondAttribute="trailing" id="uAj-5D-Rva"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="navItem" destination="T5f-a1-Cca" id="10B-CJ-XAs"/>
+                        <outlet property="urlTextField" destination="Qpp-T8-ZzI" id="HIe-ka-Qlg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M8Y-T0-TA1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1026" y="1137"/>
         </scene>
         <!--Question-->
         <scene sceneID="cNM-5s-uEV">

@@ -9,22 +9,7 @@
 import UIKit
 
 class QuizCategoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    let tableData = [
-        QuizCategory(title: "Math", description: "Numbers and equations", icon: "math", questions: [
-            QuizQuestion(question: "What is 1 + 1?", answers: ["1", "2", "3", "4"], correctAnswer: 1),
-            QuizQuestion(question: "What is 5 + 5?", answers: ["1", "3", "10", "25"], correctAnswer: 2),
-            QuizQuestion(question: "What is 45 * 1 + 1?", answers: ["6", "45", "46", "40"], correctAnswer: 2)
-        ]),
-        
-        QuizCategory(title: "Science", description: "Chemistry, biology, physics and more", icon: "science", questions: [
-            QuizQuestion(question: "How many fingers does a human have on average?", answers: ["5", "8", "10", "100"], correctAnswer: 3),
-            QuizQuestion(question: "\"He\" is the atomic symbol for which element?", answers: ["Helium", "Hydrogen", "Boron", "Chlorine"], correctAnswer: 0)
-        ]),
-        
-        QuizCategory(title: "Marvel Super Heros", description: "One of these categories does not belong...", icon: "hero", questions: [
-                QuizQuestion(question: "What is the name of the super hero that wears a red suit of armor?", answers: ["Hulk", "Iron Man", "Spiderman", "Nighthawk"], correctAnswer: 1)
-            ])
-    ];
+    var tableData: [QuizCategory] = [];
     
     private var currentQuiz: QuizCategory?
     
@@ -35,6 +20,14 @@ class QuizCategoryViewController: UIViewController, UITableViewDataSource, UITab
         
         categoryTable.dataSource = self
         categoryTable.delegate = self
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        QuizDataManager.getQuizzes { (err: NSError?, quizzes: [QuizCategory]?) -> Void in
+            self.tableData = quizzes!
+            
+            self.categoryTable.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,18 +60,9 @@ class QuizCategoryViewController: UIViewController, UITableViewDataSource, UITab
         
         self.performSegueWithIdentifier("BeginQuiz", sender: nil)
     }
-
-    @IBAction func settingsButtonTapped(sender: UIBarButtonItem) {
-        let settings = UIAlertController(title: "Settings", message: "The settings dialog would go here.", preferredStyle: .Alert)
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-        settings.addAction(cancelAction)
-        
-        self.presentViewController(settings, animated: true, completion: nil)
-    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier! == "BeginQuiz" {
+        if segue.identifier != nil && segue.identifier! == "BeginQuiz" {
             // Get the destination controller and assign the quiz to the destination controller
             let destinationController = segue.destinationViewController as! QuestionViewController
             
